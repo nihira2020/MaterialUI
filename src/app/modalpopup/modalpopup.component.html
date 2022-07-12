@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Employee</h1>
+<form [formGroup]="Reactiveform" (ngSubmit)="SaveEmployee()">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Code</mat-label>
+            <input placeholder="Code" matInput formControlName="code">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input placeholder="Name" matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input placeholder="Email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input placeholder="Phone" matInput formControlName="phone">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Designation</mat-label>
+           <mat-select formControlName="designation">
+<mat-option *ngFor="let item of desdata" [value]="item.code">
+{{item.name}}
+</mat-option>
+           </mat-select>
+        </mat-form-field>
+        <mat-radio-group formControlName="gender" aria-label="Select an Gender">
+            <mat-radio-button value="M">Male</mat-radio-button>
+            <mat-radio-button value="F">Female</mat-radio-button>
+          </mat-radio-group>
+          <section class="example-section">
+            <br>
+            <mat-checkbox formControlName="isactive" class="example-margin">Is Active</mat-checkbox>
+          </section>
+ 
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+      <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Save</button>
+    </div>
+</form>
